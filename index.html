@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+                /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'Neue Montreal';
+            src: url('https://giannantoniodemalde.com/fonts/PPNeueMontreal-Book.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue Montreal';
+            src: url('https://giannantoniodemalde.com/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Square Sans Mono VF", "Square Sans Mono", ui-monospace, menlo, "Courier New", monospace;
+            src: url('https://developer.squareup.com/') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Neue Montreal', Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #fff;
+            background-color: #000;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            padding: 40px 10px;
+            font-weight: 500;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            vertical-align: middle;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+          
+            padding: 0 20px;
+            position: relative;
+            z-index: 100;
+        }
+
+.body-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.body {
+  max-width: 700px;
+  width: 100%;
+}
+
+
+       .popup-container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .trigger-button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.079);
+            backdrop-filter: blur(3px) saturate(180%);
+            -webkit-backdrop-filter: blur(3px) saturate(180%);
+            display: none;
+            justify-content: center;
+            position: fixed;
+            
+            z-index: 1000;
+        }
+
+        .popup {
+             position: fixed;
+            top: 15vh;
+            background-color: white;
+            border-radius: 40px;
+            color: #4b4b4b;
+            width: 100%;
+            height: 80vh;
+            max-width: 400px;
+            overflow-y: auto;
+            padding: 10px 20px;
+            bottom: 0;
+           
+        }
+        .popup p{
+            font-size: 16px;
+            font-family: "Square Sans Mono VF", "Square Sans Mono", ui-monospace, menlo, "Courier New", monospace;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: rgb(255, 255, 255);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 24px;
+            color: #000;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+
+        .popup-close:hover {
+            color: #000;
+        }
+
+        .popup-header {
+            margin-bottom: 20px;
+        }
+
+        .popup-header h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .popup-header p {
+            font-size: 14px;
+            text-align: center;
+            color: #333;
+           
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border-radius: 20px;
+            border: none;
+            background-color: #f2f2f2;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-control input::placeholder {
+            color: #999;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px;
+            border: none;
+            background-color: #000;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .success-message {
+            display: none;
+            color: #28a745;
+            font-size: 16px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+        .link-items {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: space-between;
+        padding: 15px 0;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+.link-icon {
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex; /* Required to activate flex layout */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #777;
+}
+
+.link-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #777;
+}
+.link-content{
+    text-align: left;
+}
+.link-title{
+    color:#4b4b4b;
+    font-size: 16px;
+    font-weight: 600;
+      font-family: "Square Sans Mono VF", "Square Sans Mono", ui-monospace, menlo, "Courier New", monospace;
+}
+
+.link-url{
+    color:#777;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+        
+</style>
+
+<body><div class="body-container">
+  <div class="body">
+    <img src="img/img.jpg" alt="" srcset="">
+    <p style="margin-bottom: 20px;"><strong>IBM</strong> Credited in <strong>Data Science Tools and Data Science Foundations</strong>, part of the <strong>FNB App of the Year Academy</strong>(started May 6 2025, 10-week program). <br><br>  <strong>Hi! This is Wandile</strong> <br><br> Junior freelance interaction designer and creative developer based in East London, South Africa. Working on becoming a good designer and an owner of <strong>Spaces.Tech.Studio</strong>  and looking forward to compete on the world stage of the Information Technology industry. I am a student at <strong style="text-decoration: underline;text-underline-offset: 2px;">Walter Sisulu University</strong>, enrolling in Information & Communication Technology (ICT) in Software Development</p>
+    <p style="margin-bottom: 20px;">Click on the button to view a list of my social links and view websites i have built before before, </p>
+     <button class="contact-button trigger-button" id="openPopup">Contact me</button>
+        <div class="popup-overlay" id="popupOverlay">
+        <button class="popup-close" id="closePopup" aria-label="Close popup">&times;</button>
+        <div class="popup">
+
+            <div class="popup-header">
+               
+                <p style="font-family: 'Neue Montreal', Arial, sans-serif; ">Let us know about the issues you're facing.</p>
+            </div>
+            <form id="submissionForm">
+               
+<p style="margin-bottom: 20px; text-align: left; color: #666;">Social Media!</p>
+<a href="https://codegridd.vercel.app" target="_blank" class="link-wrapper">
+  <div class="form-control link-items">
+    <div class="link-icon portfolio-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="M432.31-298.46H281.54q-75.34 0-128.44-53.1Q100-404.65 100-479.98q0-75.33 53.1-128.44 53.1-53.12 128.44-53.12h150.77v60H281.54q-50.39 0-85.96 35.58Q160-530.38 160-480q0 50.38 35.58 85.96 35.57 35.58 85.96 35.58h150.77v60ZM330-450v-60h300v60H330Zm197.69 151.54v-60h150.77q50.39 0 85.96-35.58Q800-429.62 800-480q0-50.38-35.58-85.96-35.57-35.58-85.96-35.58H527.69v-60h150.77q75.34 0 128.44 53.1Q860-555.35 860-480.02q0 75.33-53.1 128.44-53.1 53.12-128.44 53.12H527.69Z"/>
+      </svg>
+    </div>
+    <div class="link-content">
+      <div class="link-title">Instagram</div>
+      <div class="link-url">codegridd.vercel.app</div>
+    </div>
+    <div class="chevron">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="m517.85-480-184-184L376-706.15 602.15-480 376-253.85 333.85-296l184-184Z"/>
+      </svg>
+    </div>
+  </div>
+</a>
+<a href="https://bases.vercel.app" target="_blank" class="link-wrapper">
+  <div class="form-control link-items">
+    <div class="link-icon portfolio-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="M432.31-298.46H281.54q-75.34 0-128.44-53.1Q100-404.65 100-479.98q0-75.33 53.1-128.44 53.1-53.12 128.44-53.12h150.77v60H281.54q-50.39 0-85.96 35.58Q160-530.38 160-480q0 50.38 35.58 85.96 35.57 35.58 85.96 35.58h150.77v60ZM330-450v-60h300v60H330Zm197.69 151.54v-60h150.77q50.39 0 85.96-35.58Q800-429.62 800-480q0-50.38-35.58-85.96-35.57-35.58-85.96-35.58H527.69v-60h150.77q75.34 0 128.44 53.1Q860-555.35 860-480.02q0 75.33-53.1 128.44-53.1 53.12-128.44 53.12H527.69Z"/>
+      </svg>
+    </div>
+    <div class="link-content">
+      <div class="link-title">X(twitter)</div>
+      <div class="link-url">bases.vercel.app</div>
+    </div>
+    <div class="chevron">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="m517.85-480-184-184L376-706.15 602.15-480 376-253.85 333.85-296l184-184Z"/>
+      </svg>
+    </div>
+  </div>
+</a>
+<a href="https://bases.vercel.app" target="_blank" class="link-wrapper">
+  <div class="form-control link-items">
+    <div class="link-icon portfolio-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="M432.31-298.46H281.54q-75.34 0-128.44-53.1Q100-404.65 100-479.98q0-75.33 53.1-128.44 53.1-53.12 128.44-53.12h150.77v60H281.54q-50.39 0-85.96 35.58Q160-530.38 160-480q0 50.38 35.58 85.96 35.57 35.58 85.96 35.58h150.77v60ZM330-450v-60h300v60H330Zm197.69 151.54v-60h150.77q50.39 0 85.96-35.58Q800-429.62 800-480q0-50.38-35.58-85.96-35.57-35.58-85.96-35.58H527.69v-60h150.77q75.34 0 128.44 53.1Q860-555.35 860-480.02q0 75.33-53.1 128.44-53.1 53.12-128.44 53.12H527.69Z"/>
+      </svg>
+    </div>
+    <div class="link-content">
+      <div class="link-title">TikTok</div>
+      <div class="link-url">bases.vercel.app</div>
+    </div>
+    <div class="chevron">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="m517.85-480-184-184L376-706.15 602.15-480 376-253.85 333.85-296l184-184Z"/>
+      </svg>
+    </div>
+  </div>
+</a>
+<p style="margin-bottom: 20px; text-align: left; color: #666;">Websites i built!</p>
+<a href="https://codegridd.vercel.app" target="_blank" class="link-wrapper">
+  <div class="form-control link-items">
+    <div class="link-icon portfolio-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="M432.31-298.46H281.54q-75.34 0-128.44-53.1Q100-404.65 100-479.98q0-75.33 53.1-128.44 53.1-53.12 128.44-53.12h150.77v60H281.54q-50.39 0-85.96 35.58Q160-530.38 160-480q0 50.38 35.58 85.96 35.57 35.58 85.96 35.58h150.77v60ZM330-450v-60h300v60H330Zm197.69 151.54v-60h150.77q50.39 0 85.96-35.58Q800-429.62 800-480q0-50.38-35.58-85.96-35.57-35.58-85.96-35.58H527.69v-60h150.77q75.34 0 128.44 53.1Q860-555.35 860-480.02q0 75.33-53.1 128.44-53.1 53.12-128.44 53.12H527.69Z"/>
+      </svg>
+    </div>
+    <div class="link-content">
+      <div class="link-title">Personal Portfolio</div>
+      <div class="link-url">codegridd.vercel.app</div>
+    </div>
+    <div class="chevron">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="m517.85-480-184-184L376-706.15 602.15-480 376-253.85 333.85-296l184-184Z"/>
+      </svg>
+    </div>
+  </div>
+</a>
+<a href="https://bases.vercel.app" target="_blank" class="link-wrapper">
+  <div class="form-control link-items">
+    <div class="link-icon portfolio-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="M432.31-298.46H281.54q-75.34 0-128.44-53.1Q100-404.65 100-479.98q0-75.33 53.1-128.44 53.1-53.12 128.44-53.12h150.77v60H281.54q-50.39 0-85.96 35.58Q160-530.38 160-480q0 50.38 35.58 85.96 35.57 35.58 85.96 35.58h150.77v60ZM330-450v-60h300v60H330Zm197.69 151.54v-60h150.77q50.39 0 85.96-35.58Q800-429.62 800-480q0-50.38-35.58-85.96-35.57-35.58-85.96-35.58H527.69v-60h150.77q75.34 0 128.44 53.1Q860-555.35 860-480.02q0 75.33-53.1 128.44-53.1 53.12-128.44 53.12H527.69Z"/>
+      </svg>
+    </div>
+    <div class="link-content">
+      <div class="link-title">Everlasting Studio</div>
+      <div class="link-url">bases.vercel.app</div>
+    </div>
+    <div class="chevron">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+        <path d="m517.85-480-184-184L376-706.15 602.15-480 376-253.85 333.85-296l184-184Z"/>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+        </div>
+    </div>
+        <script type="module">
+
+        const openPopupBtn = document.getElementById('openPopup');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const closePopupBtn = document.getElementById('closePopup');
+
+        openPopupBtn.addEventListener('click', () => {
+            popupOverlay.style.display = 'flex';
+        });
+
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                popupOverlay.style.display = 'none';
+            }
+        });
+
+        closePopupBtn.addEventListener('click', () => {
+            popupOverlay.style.display = 'none';
+        });
+
+    </script>
+</div></div>
+</body>
+</html>
