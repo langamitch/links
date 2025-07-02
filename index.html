@@ -42,8 +42,8 @@
             font-family: 'Neue Montreal', Arial, sans-serif;
             font-size: 13px;
             line-height: 1.4;
-            color: #fff;
-            background-color: #000;
+            color: #000000;
+            background-color: #ffffff;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             letter-spacing: -0.01em;
@@ -95,13 +95,14 @@
         }
 
         .trigger-button {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
+            background-color: #000000;
+            color: rgb(255, 255, 255);
             border: none;
             padding: 12px 24px;
             font-size: 16px;
             border-radius: 8px;
             cursor: pointer;
+            margin-bottom: 50px;
         }
 
         .popup-overlay {
@@ -111,8 +112,8 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.079);
-            backdrop-filter: blur(3px) saturate(180%);
-            -webkit-backdrop-filter: blur(3px) saturate(180%);
+            backdrop-filter: blur(3px) saturate(120%);
+            -webkit-backdrop-filter: blur(3px) saturate(120%);
             display: none;
             justify-content: center;
             position: fixed;
@@ -126,12 +127,13 @@
             background-color: white;
             border-radius: 40px;
             color: #4b4b4b;
-            width: 100%;
+            width: 90%;
             height: 80vh;
-            max-width: 400px;
+            max-width: 600px;
             overflow-y: auto;
-            padding: 10px 20px;
+            padding: 10px 20px 80px 20px;
             bottom: 0;
+            
            
         }
         .popup p{
@@ -190,8 +192,8 @@
             box-sizing: border-box;
         }
 
-        .form-control input::placeholder {
-            color: #999;
+        .form-control:hover {
+            background-color: #fafafa;
         }
 
         .submit-btn {
@@ -270,9 +272,11 @@
 <body><div class="body-container">
   <div class="body">
     <img src="img/img.JPG" alt="" srcset="">
-    <p style="margin-bottom: 20px;"><strong>IBM</strong> Credited in <strong>Data Science Tools and Data Science Foundations</strong>, part of the <strong>FNB App of the Year Academy</strong>(started May 6 2025, 10-week program). <br><br>  <strong>Hi! This is Wandile</strong> <br><br> Junior freelance interaction designer and creative developer based in East London, South Africa. Working on becoming a good designer and an owner of <strong>Spaces.Tech.Studio</strong>  and looking forward to compete on the world stage of the Information Technology industry. I am a student at <strong style="text-decoration: underline;text-underline-offset: 2px;">Walter Sisulu University</strong>, enrolling in Information & Communication Technology (ICT) in Software Development</p>
+    <p style="margin-bottom: 20px;"><strong>IBM</strong> Credited in <strong>Data Science Tools and Data Science Foundations</strong>, part of the <strong>FNB App of the Year Academy</strong>(started May 6 2025, 10-week program). <br>
+      <br>  <strong>Hi! This is Wandile</strong> <br>
+      <br> Junior freelance interaction designer and creative developer based in East London, South Africa. Working on becoming a good designer and an owner of <strong>Overdoo </strong> design studio and looking forward to compete on the world stage of the Information Technology industry. I am a student at <strong style="text-decoration: underline;text-underline-offset: 2px;">Walter Sisulu University</strong>, enrolling in Information & Communication Technology (ICT) in Software Development</p>
     <p style="margin-bottom: 20px;">Click on the button to view a list of my social links and view websites i have built before before, </p>
-     <button class="contact-button trigger-button" id="openPopup">Contact me</button>
+     <button class="contact-button trigger-button" id="openPopup" style="margin-bottom: 20px;">Contact me</button>
         <div class="popup-overlay" id="popupOverlay">
         <button class="popup-close" id="closePopup" aria-label="Close popup">&times;</button>
         <div class="popup">
@@ -281,9 +285,10 @@
                
               
             </div>
-            <form id="submissionForm">
+            <form id="submissionForm" style="scrollbar-width: 0px;
+            scrollbar-color: #ffffff00;">
                
-<p style="margin-bottom: 20px; text-align: left; color: #666;">Social Media!</p>
+<p style="margin-bottom: 20px; text-align: left; color: #666;font-weight: 600;">Social Media!</p>
 <a href="https://www.threads.net/@wandile_010" target="_blank" class="link-wrapper">
   <div class="form-control link-items">
     <div class="link-icon portfolio-icon">
@@ -357,7 +362,7 @@
     </div>
   </div>
 </a>
-<p style="margin-bottom: 20px; text-align: left; color: #666;">Websites i built!</p>
+<p style="margin-bottom: 20px; text-align: left; color: #666;font-weight: 600;">Websites i built!</p>
 <a href="https://codegridd.vercel.app" target="_blank" class="link-wrapper">
   <div class="form-control link-items">
     <div class="link-icon portfolio-icon">
